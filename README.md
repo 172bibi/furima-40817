@@ -4,12 +4,12 @@
 | ------------------ | ------ | ----------- |
 | name               | string | null: false |
 | email              | string | null: false, unique: true |
-| password           | string | null: false |
+| encrypted_password | string | null: false |
 | lastname           | string | null: false |
 | firstname          | string | null: false |
 | lastnamekana       | string | null: false |
 | firstnamekana      | string | null: false |
-| birthday           | string | null: false |
+| birthday           | date   | null: false |
 
 ### Association
 
@@ -21,14 +21,13 @@
 
 | Column             | Type       | Options     |
 | ------------------ | ---------- | ----------- |
-| image              | string     | null: false |
 | item               | string     | null: false |
 | explanation        | text       | null: false |
-| category           | string     | null: false |
-| situation          | string     | null: false |
-| deliverycharge     | string     | null: false |
-| region             | string     | null: false |
-| deliveryday        | string     | null: false |
+| category_id        | integer    | null: false |
+| situation_id       | integer    | null: false |
+| deliverycharge_id  | integer    | null: false |
+| region_id          | integer    | null: false |
+| deliveryday_id     | integer    | null: false |
 | price              | integer    | null: false |
 | user               | references | null: false, foreign_key: true |
 
@@ -49,7 +48,7 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_many :addresses
+- has_one :address
 
 
 ## addresses テーブル
@@ -57,11 +56,11 @@
 | Column             | Type       | Options     |
 | ------------------ | ---------- | ----------- |
 | postcode           | string     | null: false |
-| prefectures        | string     | null: false |
+| item_region_id     | references | null: false, foreign_key: true |
 | municipalities     | string     | null: false |
 | streetaddress      | string     | null: false |
 | buildingname       | string     |             |
-| phonenumber        | integer    | null: false |
+| phonenumber        | string     | null: false |
 | order              | references | null: false, foreign_key: true |
 
 ### Association
