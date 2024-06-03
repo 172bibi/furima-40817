@@ -56,7 +56,7 @@
 | Column             | Type       | Options     |
 | ------------------ | ---------- | ----------- |
 | postcode           | string     | null: false |
-| item_region_id     | references | null: false, foreign_key: true |
+| region_id          | integer    | null: false |
 | municipalities     | string     | null: false |
 | streetaddress      | string     | null: false |
 | buildingname       | string     |             |
