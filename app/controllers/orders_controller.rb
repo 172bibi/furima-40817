@@ -30,7 +30,7 @@ class OrdersController < ApplicationController
   end
 
   def prohibit_purchase
-    redirect_to root_path if current_user.id == @item.user_id
+    redirect_to root_path if current_user.id == @item.user_id || @item.order
   end
 
   def pay_item
