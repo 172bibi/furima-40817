@@ -1,4 +1,4 @@
-window.addEventListener('load', () => {
+const pay = () => {
   const priceInput = document.getElementById("item-price");
 
   priceInput.addEventListener("input", () => {
@@ -12,4 +12,7 @@ window.addEventListener('load', () => {
     feeOutput.innerText = fee;  // 手数料を表示
     profitOutput.innerText = profit;  // 利益を表示
   })
-});
+};
+
+window.addEventListener("turbo:load", pay);
+window.addEventListener("turbo:render", pay);
