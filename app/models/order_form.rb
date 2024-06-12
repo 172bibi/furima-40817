@@ -1,8 +1,9 @@
 class OrderForm
   include ActiveModel::Model
-  attr_accessor :user_id, :item_id, :postcode, :region_id, :municipalities, :streetaddress, :buildingname, :phonenumber
+  attr_accessor :user_id, :item_id, :postcode, :region_id, :municipalities, :streetaddress, :buildingname, :phonenumber, :token
 
   with_options presence: true do
+    validates :token
     validates :user_id
     validates :item_id
     validates :postcode, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Enter it as follows (e.g. 123-4567)"}
